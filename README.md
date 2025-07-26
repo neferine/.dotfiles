@@ -1,1 +1,3 @@
 # .dotfiles
+
+### rice rice rice
