@@ -1,0 +1,50 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": ["custom/player"],
+  "modules-center": ["clock"],
+  "modules-right": ["battery", "network", "custom/volume"],
+
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip": true,
+    "tooltip-format": "{:%A, %B %d, %Y}",
+    "interval": 1
+  },
+
+  "battery": {
+    "format": " {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "tooltip": true,
+    "interval": 30
+  },
+
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀 Wired",
+    "format-disconnected": " No Net",
+    "tooltip-format": "Download: {bandwidthDownBytes}/s\nUpload: {bandwidthUpBytes}/s",
+    "interval": 5
+  },
+
+  "custom/volume": {
+    "exec": "~/.config/waybar/scripts/volume.sh",
+    "interval": 2,
+    "return-type": "json",
+    "format": "{}",  
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  },
+
+  "custom/player": {
+    "exec": "playerctl metadata --format '{{artist}} - {{title}}' | cut -c1-50 || echo ' No music'",
+    "interval": 3,
+    "format": " {}",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  }
+}
