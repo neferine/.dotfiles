@@ -1,0 +1,72 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+  font-size: 13px;
+  color: #f0e0c6; /* Ivory text */
+  background: transparent;
+  border: none;
+  
+}
+
+window#waybar {
+ /*  background-color: rgba(27, 29, 43, 0.85); Deep navy background */
+  margin: 0;
+  padding: 2px 6px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: #f0e0c6;
+  padding: 4px 8px;
+  margin: 2px;
+  transition: background 0.2s ease;
+  border-radius: 10px;
+}
+
+#workspaces button.focused {
+  background-color: rgba(176, 30, 30, 0.5); /* Crimson */
+  border: 1px solid #b01e1e;
+  font-weight: bold;
+}
+
+
+#battery,
+#network,
+#cpu,
+#memory,
+#custom-player,
+#custom-volume {
+  padding: 4px 8px;
+  margin: 2px 4px;
+  background-color: rgba(0, 156, 168, 0.2); /* Teal semi-transparent */
+  border: 1px solid rgba(0, 156, 168, 0.4);
+  transition: background 0.3s ease;
+  border-radius: 10px;
+}
+
+#clock {
+  border-bottom: 1px solid rgba(0, 157, 168, 0.555);
+  font-weight: bolder;
+  color: #F8CBA6; /* Soft highlight */
+   /* background-color: rgba(216, 76, 61, 0.25); Reddish accent */
+}
+
+#battery.charging {
+  color: #F3B24D;
+}
+
+#battery.critical {
+  color: #D84C3D;
+  font-weight: bold;
+}
+
+#network.disconnected {
+  color: #D84C3D;
+}
+
+#custom-player:hover,
+#custom-volume:hover,
+#battery:hover,
+#network:hover {
+  background-color: rgba(214, 120, 66, 0.2);
+  border-color: rgba(214, 120, 66, 0.6);
+}
